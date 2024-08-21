@@ -51,6 +51,15 @@
 			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
 			<scope>test</scope>
 		</dependency>
+
+		<!-- @ConfigurationProperties의 javadoc을 이용해
+			metadata(/target/classes/META-INF/spring-configuration-metadata.json)를 생성해서
+			application.yml에서 정보주고 자동 완성 및 유형 검사를 가능하게 해준다. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -58,6 +67,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 			</plugin>
 		</plugins>
 	</build>
