@@ -33,6 +33,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,6 +48,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
