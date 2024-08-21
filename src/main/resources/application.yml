@@ -1,0 +1,12 @@
+server:
+  port: 9001
+  tomcat:
+    connection-timeout: 2s # TCP 연결을 수락하고, 실제 http 요청을 받기(시작되기?)까지 기다리는 시간, 기본 20s
+    keep-alive-timeout: 15s # 연결 비용을 줄이기 위해, 새로운 http 요청을 기다리는 동안 연결을 유지하는 시간, 미설정 시 connection-timeout 값 사용
+    threads:
+      max: 50 # 로컬에서 자원 사용 줄이기 위해 50으로 설정, 기본값 200
+      min-spare: 5 # 기본값 10
+
+spring:
+  application:
+    name: catalog-service
