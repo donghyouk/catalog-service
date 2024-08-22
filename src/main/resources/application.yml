@@ -23,13 +23,23 @@ spring:
         initial-interval: 1000 # 최초 재시도 지연 시간(ms)
         max-interval: 2000 # 재시도 지연 최대 시간(ms)
         multiplier: 1.1 # 지연 시간 계산 승수
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/polardb_catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  sql:
+    init:
+      mode: always # 인메모리 데이터베이서인 경우 기본적으로 활성화(resources/schema.sql)되지만, postgresql을 사용하니 명시적으로 설정해 줘야 한다.
 
 management:
   endpoints:
     web:
       exposure:
         include: "refresh"
-        # refresh: @RefreshScope <= @ConfigurationProperties
+        # refresh: RefreshScopeRefreshedEvent - @RefreshScope <= @ConfigurationProperties
 
 polar:
   greeting: Welcome to the local book catalog!

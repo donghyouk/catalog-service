@@ -41,6 +41,40 @@ Remove-Item Env:POLAR_GREETING
 ```
 
 # refresh
+
 ```bash
 http POST :9001/actuator/refresh
 ```
+
+
+
+
+# postgresql
+
+## start/stop
+
+```bash
+docker run -d \
+    --name polar-postgres \
+    -e POSTGRES_USER=user \
+    -e POSTGRES_PASSWORD=password \
+    -e POSTGRES_DB=polardb_catalog \
+    -p 5432:5432 \
+    postgres
+```
+
+```bash
+docker rm -fv polar-postgres
+```
+
+## database commands
+
+```bash
+docker exec -it polar-postgres psql -U user -d polardb_catalog
+```
+
+`\list`
+`\connect polardb_catalog`
+`\dt`
+`\d book`
+`\quit`
