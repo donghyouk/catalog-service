@@ -10,6 +10,26 @@ server:
 spring:
   application:
     name: catalog-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
+      request-connect-timeout: 5000 # 설정 서버에 연결될 때까지 기다리는 시간(ms)
+      request-read-timeout: 5000 # 설정 서버에서 설정 데이터를 읽을 때까지 기다리는 시간(ms)
+      fail-fast: false # 설정 서버 연결 실패를 치명적 오류로 판단(true여야 재시도 작동)
+      retry:
+        max-attempts: 6
+        initial-interval: 1000 # 최초 재시도 지연 시간(ms)
+        max-interval: 2000 # 재시도 지연 최대 시간(ms)
+        multiplier: 1.1 # 지연 시간 계산 승수
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh"
+        # refresh: @RefreshScope <= @ConfigurationProperties
 
 polar:
   greeting: Welcome to the local book catalog!

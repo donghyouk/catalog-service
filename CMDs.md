@@ -9,7 +9,10 @@
 ## jar(cli arguments)
 
 ```bash
-jara -jar target/catalog-service-0.0.1-SNAPSHOT.jar --polar.greeting="Welcome to the catalog from CLI"
+java -jar target/catalog-service-0.0.1-SNAPSHOT.jar --polar.greeting="Welcome to the catalog from CLI"
+```
+```bash
+java -jar target/catalog-service-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 ```
 
 ## jar(vm properties)
@@ -35,4 +38,9 @@ $env:POLAR_GRETTING="Welcome to the catalog from ENV"; java -jar target/catalog-
 ```
 ```powershell
 Remove-Item Env:POLAR_GREETING
+```
+
+# refresh
+```bash
+http POST :9001/actuator/refresh
 ```
