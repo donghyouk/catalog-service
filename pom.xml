@@ -61,6 +61,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.7.3</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -115,6 +116,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>${project.name}</name>
+						<env>
+							<BP_JVM_VERSION>21.*</BP_JVM_VERSION>
+						</env>
+					</image>
+                    <docker>
+                        <publishRegistry>
+                            <username>${registryUsername}</username>
+                            <password>${registryToken}</password>
+                            <url>${registryUrl}</url>
+                        </publishRegistry>
+                    </docker>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
