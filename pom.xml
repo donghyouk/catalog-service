@@ -62,6 +62,14 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -75,6 +83,11 @@
 			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
 
 		<!-- @ConfigurationProperties의 javadoc을 이용해
 			metadata(/target/classes/META-INF/spring-configuration-metadata.json)를 생성해서

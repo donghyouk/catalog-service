@@ -30,9 +30,6 @@ spring:
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 5
-  sql:
-    init:
-      mode: always # 인메모리 데이터베이서인 경우 기본적으로 활성화(resources/schema.sql)되지만, postgresql을 사용하니 명시적으로 설정해 줘야 한다.
 
 management:
   endpoints:

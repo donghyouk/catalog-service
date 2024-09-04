@@ -40,6 +40,12 @@ $env:POLAR_GRETTING="Welcome to the catalog from ENV"; java -jar target/catalog-
 Remove-Item Env:POLAR_GREETING
 ```
 
+# test
+
+```bash
+./mvnw test -Dtest="BookRepositoryJdbcTests"
+```
+
 # refresh
 
 ```bash
@@ -60,7 +66,7 @@ docker run -d \
     -e POSTGRES_PASSWORD=password \
     -e POSTGRES_DB=polardb_catalog \
     -p 5432:5432 \
-    postgres
+    postgres:16.3
 ```
 
 ```bash
