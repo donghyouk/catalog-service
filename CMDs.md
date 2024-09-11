@@ -98,6 +98,7 @@ docker network create catalog-network
 ```bash
 docker run -d \
     --name polar-postgres \
+    --net catalog-network \
     -e POSTGRES_USER=user \
     -e POSTGRES_PASSWORD=password \
     -e POSTGRES_DB=polardb_catalog \
@@ -110,7 +111,7 @@ docker run -d \
     --name catalog-service \
     --net catalog-network \
     -p 9001:9001 \
-    -e SPRING_DATASOURCE_URL=jdbczpostgresql://polar-postgres:5432/polardb_catalog \
+    -e SPRING_DATASOURCE_URL=jdbc:postgresql://polar-postgres:5432/polardb_catalog \
     -e SPRING_PROFILES_ACTIVE=testdata \
     catalog-service
 ```
