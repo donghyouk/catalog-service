@@ -29,12 +29,15 @@
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2023.0.3</spring-cloud.version>
+
+		<imageName>${project.artifactId}:${project.version}</imageName>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+			<!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+			<!-- <version>3.3.2</version>  -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -61,7 +64,8 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.3</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+			<!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+            <!-- <version>42.7.3</version> -->
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -81,7 +85,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
-			<version>3.3.2</version> <!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+			<!-- starter-parent에 의해 이 버전인데, grype가 인식을 못한다. -->
+			<!-- <version>3.3.2</version> -->
 			<scope>test</scope>
 		</dependency>
         <dependency>
@@ -118,7 +123,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>${project.name}</name>
+						<name>${imageName}</name>
 						<env>
 							<BP_JVM_VERSION>21.*</BP_JVM_VERSION>
 						</env>
