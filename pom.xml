@@ -30,7 +30,8 @@
 		<java.version>21</java.version>
 		<spring-cloud.version>2023.0.3</spring-cloud.version>
 
-		<imageName>${project.artifactId}:${project.version}</imageName>
+		<!-- <imageName>${project.artifactId}:${project.version}</imageName> -->
+		<imageName>${project.name}</imageName>
 	</properties>
 	<dependencies>
 		<dependency>
