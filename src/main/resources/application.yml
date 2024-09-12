@@ -1,5 +1,6 @@
 server:
   port: 9001
+  shutdown: graceful # 우아한 종료
   tomcat:
     connection-timeout: 2s # TCP 연결을 수락하고, 실제 http 요청을 받기(시작되기?)까지 기다리는 시간, 기본 20s
     keep-alive-timeout: 15s # 연결 비용을 줄이기 위해, 새로운 http 요청을 기다리는 동안 연결을 유지하는 시간, 미설정 시 connection-timeout 값 사용
@@ -10,6 +11,8 @@ server:
 spring:
   application:
     name: catalog-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s # 15초의 종료 기간
   config:
     import: "optional:configserver:"
   cloud:
