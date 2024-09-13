@@ -38,6 +38,15 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
+      - name: Setup tools
+        uses: alexellis/setup-arkade@v3
+      - name: Install tools
+        uses: alexellis/arkade-get@master
+        with:
+          kubeconform: latest
+      - name: Validate Kubernetes manifests
+        run: |
+          kubeconform --strict k8s
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}

@@ -1,4 +1,7 @@
+# devcontainer
+
 devcontainer.json
+```
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
@@ -36,3 +39,51 @@ devcontainer.json
     }
   ]
 }
+```
+
+postCreateCommand.sh
+```
+sudo apt update && \
+sudo apt install -y httpie && \
+curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /home/vscode/bin
+```
+
+# tilt
+
+[dashboard](http://localhost:10350)
+
+## usage
+```
+tilt up
+```
+
+# octant
+
+[dashboard](http://localhost:7777)
+
+## usage
+```
+octant
+```
+
+## install
+
+[download](https://github.com/vmware-archive/octant/releases)
+```
+dpkg -i octant_0.25.1_Linux-64bit.deb
+```
+
+# kubeconform
+
+# usage
+```
+kubeconform -summary -strict k8s
+```
+
+## install
+
+[download](https://github.com/yannh/kubeconform/releases)
+```
+tar -zxvf kubeconform-linux-amd64.tar.gz
+sudo mv kubeconform /usr/bin
+```
