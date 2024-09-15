@@ -25,7 +25,8 @@ devcontainer.json
         "redhat.java",
         "vmware.vscode-boot-dev-pack",
         "GitHub.vscode-github-actions",
-        "redhat.fabric8-analytics"
+        "redhat.fabric8-analytics",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
   },
